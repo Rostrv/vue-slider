@@ -24,9 +24,10 @@
                     </div>
                 </div>
 
-                <div class="slider position-relative border-secondary col-2">
-                    <img :src="carousel[index].image" class="thumb" :class="activeImage === index ? 'active': '' " v-for="(image, index) in carousel">
-                    <div class="navigator d-flex flex-column">
+                <div class="slider position-relative border-secondary col-2" @mouseover="stop" @mouseleave="start">
+                    <img :src="carousel[index].image" class="thumb" :class="activeImage === index ? 'active': '' " v-for="(image, index) in carousel" @click="activeImage=index">
+
+                    <div class="navigator d-flex flex-column justify-content-between">
                         <div @click="prevImage" class="up"><i class="fa-solid fa-chevron-up fa-xl"></i></div>
                         <div @click="nextImage" class="down"><i class="fa-solid fa-chevron-down fa-xl"></i></div>
                     </div>

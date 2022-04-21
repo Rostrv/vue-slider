@@ -46,8 +46,19 @@ const app = new Vue({
                 if (this.activeImage === this.carousel.length) {
                     this.activeImage = 0
                 }
-        }
+        },
 
+        start() {
+            this.timer = setInterval(this.nextImage, 3000)
+        },
 
+        stop() {
+            clearInterval(this.timer)
+        },
+
+    },
+
+    mounted: function() {
+        this.start()
     }
 });
